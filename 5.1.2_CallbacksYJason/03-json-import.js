@@ -1,5 +1,5 @@
 /* Importamos el JSON */
-const cursos = require('./cursos.json');
+const cursos = require('../cursos.json');
 
 console.log(cursos)
 
