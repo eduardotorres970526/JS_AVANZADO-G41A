@@ -34,7 +34,7 @@ function mostrarLibros() {
 function agregarLibro(titulo, autor, genero, disponible) {
     const nuevoLibro = { titulo, autor, genero, disponible };
     // Aquí falta la simulación de escribir el libro en el "archivo" (es decir, agregarlo al objeto)
-    setTimeout(() => {
+    setTimeout(() => {                                                      -
         biblioteca.libros.push(nuevoLibro);
         console.log(`El libro ${titulo} se agregó a la biblioteca`)
         // Pista: deberías agregar el nuevo libro a `biblioteca.libros`
