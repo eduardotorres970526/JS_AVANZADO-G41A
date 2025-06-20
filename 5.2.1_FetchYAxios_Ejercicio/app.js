@@ -13,6 +13,7 @@
 
 const fetchBtn = document.getElementById('fetch-btn');
 const dataContainer = document.getElementById('data-container');
+const UrlApi = 'https://rickandmortyapi.com/api/character' 
 
 fetchBtn.addEventListener('click', () => {
 
@@ -42,11 +43,18 @@ function mostrarDatos(datos) {
   datos.results.forEach(post => {
     const elemento = document.createElement('article');
     elemento.classList.add('post');
-    elemento.innerHTML = `<p>${post.name}</p>`;
+    elemento.innerHTML = `
+    <p>${post.name}</p>
+    <img src="${post.image}" alt="${post.image}">
+    <p>${post.name} vive en ${post.location.name}</p>
+    <p>Para más información de la ubicación de los personajes, consulte el siguiente enlace: <a href="${post.location.url}" target="_blank">${post.location.url}</a></p>
+    `;
     dataContainer.appendChild(elemento)
   })
 
 }
+
+
 
 // Implementa las Solicitudes con Axios
 
@@ -57,9 +65,10 @@ function mostrarDatos(datos) {
 const axiosBtn = document.getElementById('axios-btn');
 
 axiosBtn.addEventListener('click', () => {
-  axios.get('https://rickandmortyapi.com/api/character')
+  axios.get(UrlApi)
     .then(response => {
       const data = response.data;
+      renderCharacters(data)
       // Completar: renderizar datos en el contenedor
       // Pista: Observa que Axios ya convierte la respuesta JSON, por lo que no necesitas usar `.json()`.
     })
@@ -73,11 +82,13 @@ axiosBtn.addEventListener('click', () => {
 // Puedes adecuar este código
 function renderCharacters(characters) {
   dataContainer.innerHTML = '';
-  characters.forEach(character => {
+  characters.results.forEach(character => {
     const characterElement = document.createElement('div');
     characterElement.innerHTML = `
-      <h3>${character.name}</h3>
-      <img src="${character.image}" alt="${character.name}">
+      <h1>${character.name}</h1>
+    <img src="${character.image}" alt="${character.image}">
+    <h4>${character.name} vive en ${character.location.name}</h4>
+    <p>Para más información de la ubicación de los personajes, consulte el siguiente enlace: <a href="${character.location.url}" target="_blank">${character.location.url}</a></p>
     `;
     dataContainer.appendChild(characterElement);
   });
