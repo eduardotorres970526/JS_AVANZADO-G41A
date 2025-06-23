@@ -1,6 +1,6 @@
 // RESOLVER PROMESAS 1: THEN Y CATCH - Pokéapi
 
-function getPokemonThen(name = 'ditto') {
+function getPokemonThen(name) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then(response => {
             if (!response.ok) {
@@ -21,7 +21,7 @@ function getPokemonThen(name = 'ditto') {
         })
 }
 
-getPokemonThen()
+getPokemonThen('ditto')
 
 // RESOLVER PROMESAS 2: ASYNC AWAIT - Pokéapi
 async function getPokemonAsync(name = 'ditto') {
