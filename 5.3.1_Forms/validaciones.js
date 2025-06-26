@@ -23,28 +23,28 @@ function validarNombre(nombre) {
             : { valido: true };
 }
 
-function validarEmail(valor) {
+function validarEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return valor.length === 0
+    return email.length === 0
         ? { valido: false, mensaje: 'El email es obligatorio.' }
-        : !regex.test(valor)
+        : !regex.test(email)
             ? { valido: false, mensaje: 'El formato del email no es válido.' }
             : { valido: true };
 }
 
-function validarPassword(valor) {
+function validarPassword(password) {
     switch(true) {
-        case valor.length === 0:
+        case password.length === 0:
             return { valido: false, mensaje: 'La contraseña es obligatoria.' };
-        case valor.length < 8:
+        case password.length < 8:
             return { valido: false, mensaje: 'La contraseña debe tener al menos 8 caracteres.' };
         default:
             return { valido: true };
     }
 }
 
-function validarPais(valor) {
-    return valor === ''
+function validarPais(pais) {
+    return pais === ''
         ? { valido: false, mensaje: 'Debe seleccionar un país.' }
         : { valido: true };
 }
