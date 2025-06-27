@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const formRegistroEvento = getElementById('registroEvento')
+    const formRegistroEvento = document.getElementById('registroEvento')
     const nombre = document.getElementById('nombre');
     const correo = document.getElementById('correo');
     const telefono = document.getElementById('telefono');
@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const hora = document.getElementById('hora');
 
     
-    nombre.addEventListener('input', () => validarCampos(input, validarNombre))
+    nombre.addEventListener('input', () => validarCampos(nombre, validarNombre))
+    correo.addEventListener('input', () => validarCampos(correo, validarCorreo))
+    telefono.addEventListener('input', () => validarCampos(telefono, validarTelefono))
      
     
     

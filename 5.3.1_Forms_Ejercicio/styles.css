@@ -20,6 +20,14 @@ form {
       border-radius: 5px;
     }
 
+    .mensajeError{
+      color: #d93025;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 4px;
+    min-height: 1em;
+    }
+
     input.error{
         border-color: red;
     }
