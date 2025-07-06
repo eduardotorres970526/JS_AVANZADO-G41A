@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Si todo está bien
       alert('Registro exitoso. ¡Gracias por registrarte!');
+     formRegistroEvento.reset();
     });
+
 })
 
 

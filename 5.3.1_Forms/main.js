@@ -59,7 +59,7 @@ document.addEventListener ('DOMContentLoaded', () => {
 
         const data = await response.json();
         console.log('Usuario Registrado Exitosamente:', data);
-
+z
         // Mostrar mensaje de éxito en la UI
         mensajeExito.textContent = '¡Registro exitoso! Usuario creado con ID: ' + data.id;
         mensajeExito.style.display = 'block';
