@@ -1,0 +1,20 @@
+{
+  "name": "5.4.1_npm",
+  "version": "1.0.0",
+  "description": "Aprender a usar Node JS y NPM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "npm"
+  ],
+  "author": "Eduardo Torres",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.10.0"
+  }
+}
