@@ -1,0 +1,160 @@
+
+/* --- 1. Importación de Fuente y Variables Globales --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --font-family: 'Poppins', sans-serif;
+  --bg-color: #0b0f19;
+  --surface-color: rgba(30, 41, 59, 0.5);
+  --primary-text-color: #e2e8f0;
+  --secondary-text-color: #94a3b8;
+  --accent-color: #38bdf8;
+  --glow-color: rgba(56, 189, 248, 0.5);
+  --error-color: #fb7185;
+}
+
+
+/* --- 2. Estilos Base y del Body --- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 1% 1%, #374151 1px, transparent 1px),
+                    radial-gradient(circle at 99% 99%, #374151 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--primary-text-color);
+
+  /* Usamos Flexbox para centrar nuestro panel de control perfectamente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+/* --- 3. Panel Principal (Glassmorphism) --- */
+
+/* Usamos el #app que Vite pone en el body como nuestro contenedor principal */
+#app {
+  width: 90%;
+  max-width: 500px;
+  padding: 2.5rem;
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* El efecto de vidrio esmerilado */
+  backdrop-filter: blur(10px);
+
+  /* El resplandor (glow effect) */
+  box-shadow: 0 0 40px var(--glow-color);
+}
+
+
+/* --- 4. Tipografía y Texto --- */
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  /* Un sutil resplandor en el título */
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+h1 > span { /* El emoji del cohete */
+  display: inline-block;
+  transform-origin: bottom center;
+  animation: rocket-launch 3s infinite ease-in-out;
+}
+
+p {
+  color: var(--secondary-text-color);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+
+/* --- 5. Botón Interactivo --- */
+
+#fetch-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Transición suave para todos los cambios */
+  transition: all 0.3s ease;
+}
+
+#fetch-button:hover {
+  /* Al pasar el cursor, el botón brilla y se eleva sutilmente */
+  box-shadow: 0 0 20px var(--glow-color);
+  transform: translateY(-3px);
+}
+
+#fetch-button:active {
+  /* Al hacer clic, el botón se presiona */
+  transform: translateY(-1px);
+  filter: brightness(0.9);
+}
+
+
+/* --- 6. Lista de Astronautas y Animaciones --- */
+#astronaut-list-container {
+  margin-top: 2rem;
+  min-height: 50px; /* Evita que el layout salte al cargar */
+}
+
+#astronaut-list-container ul {
+  list-style: none;
+}
+
+#astronaut-list-container li {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--accent-color);
+
+  /* Animación de entrada */
+  animation: slideUpFadeIn 0.5s ease-out forwards;
+}
+
+/* Animación para que cada elemento de la lista aparezca suavemente */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para el cohete del título */
+@keyframes rocket-launch {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* --- 7. Estilo del Mensaje de Error --- */
+.error {
+  color: var(--error-color);
+  font-weight: 600;
+  text-align: center;
+}
